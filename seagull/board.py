@@ -149,8 +149,7 @@ class MultiStateBoard:
         for s in range(len(self.state)):
             # Insert the lifeform into the correct state and remove
             # it from other states
-            self.state[s, mask.astype(bool)] = (s == state)
-
+            self.state[s, mask.astype(bool)] = s == state
 
     def clear(self):
         """Clear the board and remove all lifeforms"""
