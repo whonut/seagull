@@ -134,7 +134,6 @@ class MultiStateBoard:
             to
         """
         mask = np.zeros(self.size[1:])
-        print(mask)
 
         if state >= self.size[0]:
             logger.error("Lifeform has an invalid state")
