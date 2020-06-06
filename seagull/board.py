@@ -127,7 +127,7 @@ class MultiStateBoard:
             A lifeform that can evolve in the board
         loc : array_like of size 2
             Initial location of the lifeform on the board
-        state : int strictly less than `self.states`
+        state : int strictly less than `self.state`
             State which the cells of the lifeform should be initialised
             to
         """
@@ -147,7 +147,7 @@ class MultiStateBoard:
     def clear(self):
         """Clear the board and remove all lifeforms"""
         logger.debug("Board cleared!")
-        self.states = np.zeros(self.size, dtype=bool)
+        self.state = np.zeros(self.size, dtype=bool)
 
     def view(self, figsize=(5, 5)) -> Tuple[Figure, AxesImage]:
         """View the current state of the board
@@ -165,9 +165,9 @@ class MultiStateBoard:
 
         # Collapse the board state into a single array suitable for display.
         display_matrix = np.zeros(self.size[1:])
-        for state, state_matrix in enumerate(self.states):
+        for state, state_matrix in enumerate(self.state):
             # Scale the entries to give the state a unique color.
-            display_matrix += state / (len(self.states) - 1) * state_matrix
+            display_matrix += state / (len(self.state) - 1) * state_matrix
 
         # Create graphical view
         fig = plt.figure(figsize=figsize)
