@@ -70,7 +70,7 @@ def rps_life_rule(X: np.ndarray, cycle_thresholds: list) -> np.ndarray:
         Updated boards after applying the rule
     """
     # Compute neighbors matrix for each state.
-    neighbors = np.zeros_like(X)
+    neighbors = np.zeros_like(X, dtype=int)
     for state in range(len(X)):
         neighbors[state] = _count_neighbors(X[state])
 
